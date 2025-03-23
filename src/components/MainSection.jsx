@@ -31,7 +31,9 @@ export default function ImageSearch() {
     const currentPage = reset ? 1 : page;
     try {
       const response = await fetch(
-        `https://pixabay.com/api/?key=49478460-eeea74ea26a3c43ef88fc2cdb&q=${encodeURIComponent(
+        `https://pixabay.com/api/?key=${
+          process.env.NEXT_PUBLIC_PIXABAY_API_KEY
+        }&q=${encodeURIComponent(
           query
         )}&image_type=${imageType}&page=${currentPage} `
       );
